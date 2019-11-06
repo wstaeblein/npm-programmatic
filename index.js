@@ -40,7 +40,8 @@ module.exports = {
 		if(!opts) opts = {};
 		var cmdString = "npm update " + packages.join(" ") + " "
 		+ (opts.global ? " -g" : "")
-		+ (opts.save === false ? " --no-save" : " --save")
+		+ (opts.nosave ? " --no-save" : "");
+		+ (opts.save ? " --save" : "");
 		+ (opts.saveDev ? " --save-dev" : "");
 
 		return new Promise(function(resolve, reject){
